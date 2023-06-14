@@ -1,0 +1,22 @@
+{
+  "name": "kbn-es-query",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "cross-env NODE_PATH=./deps node src/example.js"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.22.5",
+    "intl-format-cache": "^2.1.0",
+    "intl-messageformat": "^2.2.0",
+    "intl-relativeformat": "^2.1.0",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.4",
+    "moment-timezone": "^0.5.43"
+  },
+  "packageManager": "yarn@3.6.0",
+  "devDependencies": {
+    "cross-env": "^7.0.3"
+  }
+}
