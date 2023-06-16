@@ -1,3 +1,6 @@
-import { buildEsQuery } from '@kbn/es-query';
+import * as esQuery from '@kbn/es-query';
+import { BuildEsQuery } from './kbn-es-query';
 
-export default { buildEsQuery };
+const retyped: { buildEsQuery: BuildEsQuery } = esQuery;
+
+export default retyped;
