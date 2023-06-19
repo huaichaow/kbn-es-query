@@ -1,10 +1,11 @@
 type Query = { query: string; language: 'kuery' };
 type Filter = {
   meta: {
-    index: string;
     [k: string]: unknown;
-  },
-  [k: string]: unknown;
+  };
+  query: {
+    [k: string]: unknown;
+  };
 };
 type Config = {
   allowLeadingWildcards: boolean,
@@ -18,16 +19,9 @@ type Config = {
   caseInsensitive?: boolean;
 };
 
-export type x = (
-  indexPattern: null | undefined,
-  queries: Query | Query[],
-  filters: Filter | Filter[],
-  config: Config,
-)=> unknown;
-
 export type BuildEsQuery = (
   indexPattern: null | undefined,
   queries: Query | Query[],
   filters: Filter | Filter[],
   config: Config,
-) => unknown;
+) => Record<string, unknown>;
