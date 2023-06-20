@@ -12,7 +12,11 @@ module.exports = [
       format: 'cjs',
     },
     plugins: [
-      ts({ module: 'esnext' }),
+      ts({
+        module: 'esnext',
+        include: ["src/**/*"],
+        exclude: ["src/test/**/*"],
+      }),
       commonjs(),
       json(),
       nodeResolve({
@@ -27,9 +31,9 @@ module.exports = [
     ],
   },
   {
-    input: 'src/example.ts',
+    input: 'src/test/build-es-query.test.ts',
     output: {
-      file: 'build/example.js',
+      file: 'build-test/build-es-query.test.js',
       format: 'cjs',
     },
     plugins: [
@@ -38,13 +42,10 @@ module.exports = [
         compilerOptions: {
           // clear paths to prevent expanding import of 'kbn-es-query' to '@kbn/es-query'
           paths: [],
+          outDir: './build-test',
         },
-      }),
-      nodeResolve({
-        preferBuiltins: true,
-        resolveOnly(module) {
-          return false;
-        },
+        include: ["src/test/**/*"],
+        exclude: ["build/**/*"],
       }),
     ],
   },

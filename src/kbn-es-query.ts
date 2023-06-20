@@ -1,6 +1,6 @@
 type Query = { query: string; language: 'kuery' };
 type Filter = {
-  meta: {
+  meta?: {
     [k: string]: unknown;
   };
   query: {
