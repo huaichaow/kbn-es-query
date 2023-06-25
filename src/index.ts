@@ -7,10 +7,10 @@ export { retyped as kbnEsQuery };
 
 export function buildEsQuery(options: {
   query: string;
-  startTime: string;
-  endTime: string;
+  timeFrom: string;
+  timeTo: string;
 }): ReturnType<BuildEsQuery> {
-  const { query, startTime, endTime } = options;
+  const { query, timeFrom, timeTo } = options;
 
   return retyped.buildEsQuery(
     null,
@@ -28,8 +28,8 @@ export function buildEsQuery(options: {
           range: {
             '@timestamp': {
               format: 'strict_date_optional_time',
-              gte: startTime,
-              lt: endTime, // e.g., '2023-06-14T10:24:15.061Z',
+              gte: timeFrom,
+              lt: timeTo, // e.g., '2023-06-14T10:24:15.061Z',
             },
           },
         },

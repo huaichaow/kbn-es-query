@@ -2,8 +2,8 @@
 import { kbnEsQuery, buildEsQuery } from 'kbn-es-query';
 
 const query = 'name: AccessLog';
-const startTime = '2023-06-14T10:09:15.061Z';
-const endTime = '2023-06-14T10:24:15.061Z';
+const timeFrom = '2023-06-14T10:09:15.061Z';
+const timeTo = '2023-06-14T10:24:15.061Z';
 
 const expectedEsQuery = {
   'bool': {
@@ -41,8 +41,8 @@ describe('buildEsQuery', () => {
             range: {
               '@timestamp': {
                 format: 'strict_date_optional_time',
-                gte: startTime,
-                lt: endTime,
+                gte: timeFrom,
+                lt: timeTo,
               },
             },
           },
@@ -65,8 +65,8 @@ describe('buildEsQuery', () => {
   it('should generate ES query with simplified function', () => {
     const esQuery = buildEsQuery({
       query,
-      startTime,
-      endTime,
+      timeFrom,
+      timeTo,
     });
 
     expect(esQuery).toMatchObject(expectedEsQuery);
