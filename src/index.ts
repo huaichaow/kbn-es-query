@@ -29,7 +29,7 @@ export function buildEsQuery(options: {
             '@timestamp': {
               format: 'strict_date_optional_time',
               gte: startTime,
-              lte: endTime, // e.g., '2023-06-14T10:24:15.061Z',
+              lt: endTime, // e.g., '2023-06-14T10:24:15.061Z',
             },
           },
         },

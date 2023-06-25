@@ -18,7 +18,7 @@ const expectedEsQuery = {
         '@timestamp': {
           'format': 'strict_date_optional_time',
           'gte': '2023-06-14T10:09:15.061Z',
-          'lte': '2023-06-14T10:24:15.061Z'
+          'lt': '2023-06-14T10:24:15.061Z'
         }
       }
     }],
@@ -42,7 +42,7 @@ describe('buildEsQuery', () => {
               '@timestamp': {
                 format: 'strict_date_optional_time',
                 gte: startTime,
-                lte: endTime,
+                lt: endTime,
               },
             },
           },
